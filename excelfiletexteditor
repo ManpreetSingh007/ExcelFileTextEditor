@@ -1,0 +1,31 @@
+import java.io.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+public class excelfiletexteditor {
+	public static void main(String[] args) throws Exception{
+        
+        FileInputStream file= new FileInputStream(new File("C:\\Users\\Manpreet Singh Kohli\\Desktop\\poi-3.17\\sample-xlsx-file.xlsx"));
+          
+        XSSFWorkbook inputWorkbook=new XSSFWorkbook(file);
+          
+        XSSFSheet worksheet = inputWorkbook.getSheetAt(0); 
+          
+        Cell cell = null; 
+        
+        cell = worksheet.getRow(21).getCell(3);   
+          
+        cell.setCellValue("Excel File Text Editor");  
+          
+        
+        file.close(); 
+         
+        FileOutputStream output_file =new FileOutputStream(new File("C:\\Users\\Manpreet Singh Kohli\\Desktop\\AD##AD.xlsx"));  
+          
+        inputWorkbook.write(output_file); 
+        inputWorkbook.close();
+        output_file.close();     
+}
+}
+
+
